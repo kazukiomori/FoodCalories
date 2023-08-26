@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct FoodCaloriesApp: App {
+    
+    @StateObject private var dateController = DataController()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, dateController.container.viewContext)
         }
     }
 }
